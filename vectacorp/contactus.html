@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Welcome to Vecta Corp.</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+  
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/jquery.mobilemenu.js"></script>
+     <script>
+  $(function() {
+    $('#responsive-menu').mobileMenu();
+    $(document).tooltip();
+    $( "#infrastructure" ).buttonset();
+    $( "#products" ).buttonset();
+    $( "#companysize" ).selectmenu();
+    });
+  </script>
+   
+     <script>
+    $(function() {
+    $( "input[type=submit]" )
+      .button();
+      .click(function( event ) {
+        event.preventDefault();
+      });
+  });
+  </script>
+    <script>
+  $(function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+    $( "#opener" ).click(function() {
+        $( "#dialog" ).dialog( "open" );
+        $("#contactform").submit();
+    });
+  });
+  </script>  
+</head>
+
+<body>
+	<main class="container">
+		<figure class="three columns">
+			<img src="images/logo.gif" class="scale-with-grid" alt="">
+		</figure>
+
+    		<nav class="thirteen columns">
+			<ul id="responsive-menu">
+				<li><a href="index.html" title="Vecta Corp. home page">Home</a></li>
+				<li><a href="aboutus.html" title="About Vecta Corp. - turnkey solution for your agile eBusiness!">About Us</a></li>
+				<li><a href="solutions.html" title="Vecta Corp. offers 3 solutions for prospecting, converting, and retaining customers.">Solutions</a></li>
+				<li><a href="support.html" title="Your convenient one-stop shop for vSupport">Support</a></li>
+				<li><a href="contactus.html" title="Contact a Sales Representative now">Contact Us</a></li>
+			</ul>
+		</nav>
+		
+		<header class="sixteen columns">
+			<img src="images/header.gif" class="scale-with-grid" alt="">
+		</header>
+		
+		<section id="welcome" class="eleven columns">
+			<h4>Contact Us</h4>
+			<form id="contactform" name="contactform" action="http://www.vectacorp.com/vc/scripts/contactus.asp" method="post">
+				<fieldset>
+			    <legend>Contact a Sales Representative</legend>
+			    Name:
+			    <input type="text" name="name" maxlength="30" required="">
+			    Company Name:
+			    <input type="text" name="companyname" maxlength="30" required="">
+			    Phone:
+			    <input type="tel" name="phonenumber" maxlength="25" required="" pattern="\d{3}[\-]\d{3}[\-]\d{4}" title="Format: 555-555-5555">
+			    
+			    Email:
+				<input type="email" name="email" maxlength="30" required="">
+			   
+                What VectaCorp products are you interested in?
+<!--                <input type="checkbox" id="check"><label for="check">Toggle</label>-->
+ 
+<div id="products">
+  <input type="checkbox" id="checkbox1" name="product" value="vProspect"><label for="checkbox1">vProspect 2.0</label>
+  <input type="checkbox" id="checkbox2" name="product" value="vConvert"><label for="checkbox2">vConvert 2.0</label>
+  <input type="checkbox" id="checkbox3" name="product" value="vRetain"><label for="checkbox3">vRetain 1.0</label>
+</div>
+            
+<!--			    <label for="vProspect"><input type="checkbox" name="product" value="vProspect" id="vProspect">vProspect 2.0</label>
+			    <label for="vConvert"><input type="checkbox" name="product" value="vConvert" id="vConvert">vConvert 2.0</label>
+			    <label for="vRetain"><input type="checkbox" name="product" value="vRetain" id="vRetain">vRetain 1.0</label>-->
+			    
+			    <br>
+			    What is your current infrastructure?
+			      <div id="infrastructure">
+    <input type="radio" id="radio1" name="infrastructure"  value="Mac"><label for="radio1">Mac</label>
+    <input type="radio" id="radio2" name="infrastructure"  value="Linux"><label for="radio2">Linux</label>
+    <input type="radio" id="radio3" name="infrastructure" value="Unix"><label for="radio3">Unix</label>
+    <input type="radio" id="radio4" name="infrastructure" value="Windows"><label for="radio4">Windows</label>
+  </div>
+   <br>         
+<!--			    <label for="companysize">How many employees do you have?</label>-->
+			     How many employees do you have?<br>
+			    <select name="companysize" id="companysize">
+                    <option value="1-10">1-10</option>
+                    <option value="11-100" selected="selected">11-100</option>
+                    <option value="101-1000">101-1000</option>
+                    <option value="More than 1000">More than 1000</option>
+		        </select>
+                <br><br>
+			    How did you hear about us?<br>
+			    <select name="hearaboutus" multiple="" size="5">
+                    <option value="Magazine Ad">Magazine Ad</option>
+                    <option value="Radio Ad">Radio Ad</option>
+                    <option value="TV Ad">TV Ad</option>
+                    <option value="Word of Mouth">Word of Mouth</option>
+                    <option value="Other">Other</option>
+		        </select>
+                
+			    Questions or comments for our sales representatives?
+			    <textarea name="questions" size="30" rows="5"></textarea>
+			    <input type="submit" id="opener" name="submit" value="Submit Now">
+			    <div id="dialog" title="Basic dialog">
+  <p>Thank you for your inquiry. But please fill in your name, company name, phone number, and email. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+		    	</fieldset>
+			</form>
+	    </section>
+		
+		<section id="testimonials" class="five columns">
+			<h4>Map</h4>
+			<p>&nbsp;</p>
+
+		</section>
+	</main>
+</body>
+</html>
